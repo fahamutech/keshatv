@@ -1,30 +1,7 @@
-import ReactHlsPlayer from 'react-hls-player';
 import React, {useEffect, useState} from "react";
 import {useQuery} from "../utils/url";
 import {useNavigate} from 'react-router-dom'
-// bafybeihza4u4mibw727nwbj47agzp5wvbmzpyqxfxwedwuuagkte3xz4ta
-function HlsPlayer({v, s}) {
-    const playerRef = React.useRef();
-    useEffect(() => {
-        // playerRef.current.play()
-    }, [])
-    return (
-        <>
-            <ReactHlsPlayer
-                src={'https://infura-ipfs.io/ipfs/'+v+'/master.m3u8'}
-                autoPlay={true}
-                controls={true}
-                width="100%"
-                height="auto"
-                hlsConfig={{
-                    enableWorker: true,
-                    progressive: true,
-                    startPosition: s,
-                }}
-                playerRef={playerRef}/>
-        </>
-    )
-}
+import VideoPlayer from "../components/VideoPlayer";
 
 function WatchPage() {
     const navigate = useNavigate();
@@ -42,10 +19,10 @@ function WatchPage() {
             return;
         }
         navigate("/", {replace: true});
-    }, [cid, s])
+    }, [cid, navigate, time])
     return (
         <div className='flex justify-center content-center vh-100'>
-            {v ? <HlsPlayer v={v} s={s}/> : null}
+            {v ? <VideoPlayer v={v} s={s}/> : null}
         </div>
     )
 }
