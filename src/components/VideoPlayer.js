@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import ReactHlsPlayer from "react-hls-player";
-
+// infura-ipfs.io
+// astyanax.io
 function VideoPlayer({v, s}) {
     const playerRef = React.useRef();
     useEffect(() => {
