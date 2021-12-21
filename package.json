@@ -1,12 +1,12 @@
 {
   "name": "keshatv",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "private": true,
   "description": "On demand streaming using ipfs",
   "license": "MIT",
   "scripts": {
     "clean": "rimraf ./build",
-    "build": "react-scripts build",
+    "build": "npm run clean && react-scripts build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test:react": "react-scripts test",
