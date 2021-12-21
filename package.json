@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf ./build",
-    "build": "react-scripts build",
+    "build": "npm run clean && react-scripts build",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test:react": "react-scripts test",
