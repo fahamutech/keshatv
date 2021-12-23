@@ -1,23 +1,46 @@
-const activeLink = 'link br-pill pv2 ph4 white ma1 b--solid bw1';
-const inactiveLink = 'link br-pill pv2 ph4 white ma1';
+import {useEffect, useState} from "react";
+import {functions} from "bfast";
 
-function link() {
+const activeLink = 'link br-pill pv2 ph4 white ma1 bw1 pointer';
+const inactiveLink = 'link br-pill pv2 ph4 white ma1 pointer';
+
+function linkActive() {
     return {
         background: '#202020'
     }
 }
 
-function CategoryTags({onChoose = () => {}}) {
+function CategoryTags({active, onChoose}) {
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        functions().request('/db/categories/index.json').get().then(v => {
+            setCategories(v)
+        }).catch(console.log);
+    }, []);
     return (
-        <div className='ph4-l ph2 pb4 pt2 flex flex-row flex-nowrap overflow-y-scroll'>
-            <a href="#0" onClick={() => onChoose('recently')} className={activeLink} style={link()}>
+        <div className='ph4-l ph2 pb2 pt2 flex flex-row flex-nowrap overflow-y-scroll'>
+            <span onClick={() => onChoose('recently')}
+                  className={active === 'recently' ? activeLink : inactiveLink}
+                  style={active === 'recently' ? linkActive() : null}>
                 Recently
-            </a>
-            {/*<a href="#0" onClick={() => onChoose('bongo')} className={inactiveLink} style={link()}>*/}
-            {/*    Bongo*/}
-            {/*</a>*/}
+            </span>
+            {categories.map(y => {
+                return (
+                    <span key={y} onClick={() => onChoose(y)}
+                          className={active === y ? activeLink : inactiveLink}
+                          style={active === y ? linkActive() : null}>
+                        {y}
+                    </span>
+                )
+            })}
         </div>
     )
 }
 
 export default CategoryTags
+
+
+
+
+
+

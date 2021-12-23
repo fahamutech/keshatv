@@ -1,6 +1,6 @@
 function searchContainer() {
     return {
-        maxWidth: '500px',
+        maxWidth: '800px',
         height: '48px',
         background: '#363636'
     }
@@ -21,11 +21,11 @@ function SearchBar() {
                 <input
                     placeholder='Search...'
                     className='h-100 w-100 outline-0 bg-transparent b--none pl2 pr1 white'/>
-                <a href="#0"
+                <button
                    className='b--none link dim flex justify-center content-center white h-100 w-100 center'
                    style={searchContainerButton()}>
                     <p>Go</p>
-                </a>
+                </button>
             </div>
         </div>
     )
