@@ -3,3 +3,5 @@ build
 .idea
 .vscode
 output.car
+ktv_output
+ktv_cid.txt
