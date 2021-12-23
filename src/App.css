@@ -1,28 +1,27 @@
-.react-logo {
-  pointer-events: none;
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .react-logo {
-    animation: react-logo-spin infinite 20s linear;
-  }
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
 }
 
-.react-header {
-  text-align: center;
-  font-size: calc(10px + 2vmin);
-  color: #282c34;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.react-link {
-  color: #61dafb;
+video::-webkit-media-controls {
+  display:none !important;
 }
-
-@keyframes react-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+video::-webkit-media-controls-enclosure {
+  display:none !important;
 }
