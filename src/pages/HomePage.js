@@ -14,6 +14,7 @@ function HomePage() {
             setVideos(v)
         }).catch(console.log);
         // .finally(() => setVideosLoading(false))
+        document.title = "KeshaTv - Home";
     }, [activeCategory]);
     return (
         <>
