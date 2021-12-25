@@ -1,6 +1,6 @@
 {
   "name": "keshatv",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "private": true,
   "description": "On demand streaming using ipfs",
   "license": "MIT",
