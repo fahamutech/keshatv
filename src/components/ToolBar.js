@@ -1,3 +1,7 @@
+import {ReactComponent as BackArrow} from "../raw/back_arrow.svg";
+import React from "react";
+import {useNavigate} from "react-router-dom";
+
 function searchContainer() {
     return {
         maxWidth: '800px',
@@ -14,9 +18,23 @@ function searchContainerButton() {
     }
 }
 
-function SearchBar() {
+function ShowBackArrow(backUrl) {
+    const navigation = useNavigate();
+    if (backUrl){
+        return (
+            <BackArrow className='pointer ph2' style={{width: '24px'}} onClick={() => navigation(backUrl)}/>
+        )
+    }
+    else return null
+}
+
+function ToolBar({logo, title, backUrl}) {
     return (
-        <div className='w-100 pv3 ph2 flex justify-center content-center'>
+        <div className='w-100 pv3 ph2 flex justify-center items-center'>
+            {ShowBackArrow(backUrl)}
+            <img style={{objectFit: 'cover'}}
+                 className='ph2' width={49} height={49} src={logo} alt={title}/>
+            <div className='white pa2 db-l db-m dn'>{title}</div>
             <div className='w-100 flex flex-row' style={searchContainer()}>
                 <input
                     placeholder='Search...'
@@ -31,4 +49,4 @@ function SearchBar() {
     )
 }
 
-export default SearchBar
+export default ToolBar

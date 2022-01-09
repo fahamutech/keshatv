@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {functions} from "bfast";
+import {channelCategories} from "../services/categories";
 
 const activeLink = 'link br-pill pv2 ph4 white ma1 bw1 pointer';
 const inactiveLink = 'link br-pill pv2 ph4 white ma1 pointer';
@@ -10,13 +11,11 @@ function linkActive() {
     }
 }
 
-function CategoryTags({active, onChoose}) {
+function CategoryTags({active, onChoose, channelId}) {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        functions().request('/db/categories/index.json').get().then(v => {
-            setCategories(v)
-        }).catch(console.log);
-    }, []);
+        channelCategories(channelId).then(setCategories).catch(console.log)
+    }, [channelId]);
     return (
         <div className='ph4-l ph2 pb2 pt2 flex flex-row flex-nowrap overflow-y-scroll'>
             <span onClick={() => onChoose('recently')}
