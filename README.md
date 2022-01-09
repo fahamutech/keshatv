@@ -1,6 +1,10 @@
 ## KeshaTv
 On demand movies and series streaming using ipfs
 
-Current website [gateway url](https://bafybeih7vp6hslgr25xdma44kvyc4mr4736nx4igqxexicsuy3xccq22ym.ipfs.astyanax.io/)
+Current website over IPFS [gateway url](https://bafybeihkjevfhebwzp2yn6rtooetoq3wowaw3yvqyks6jextgmn653k4fa.ipfs.astyanax.io/)
 
-Current CID : `bafybeih7vp6hslgr25xdma44kvyc4mr4736nx4igqxexicsuy3xccq22ym`
+Current CID : `bafybeihkjevfhebwzp2yn6rtooetoq3wowaw3yvqyks6jextgmn653k4fa`
+
+Current website over firebase [KeshaTV](https://keshatv.fahamutech.com)
+
+
