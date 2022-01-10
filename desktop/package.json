@@ -2,7 +2,7 @@
   "name": "keshatv",
   "description": "on demand television",
   "author": "SmartStock Company",
-  "version": "0.1.0-alpha.9",
+  "version": "0.1.0-alpha.10",
   "main": "./index.js",
   "build": {
     "appId": "com.fahamutech.keshatv",
