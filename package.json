@@ -1,6 +1,6 @@
 {
   "name": "keshatv",
-  "version": "0.1.0-alpha.10",
+  "version": "0.1.0-alpha.11",
   "private": true,
   "description": "On demand streaming using ipfs",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "build": "npm run clean && react-scripts build",
     "build:desktop": "PUBLIC_URL='.' npm run build && mkdir desktop/keshatv || echo '...' && cp -r build/* desktop/keshatv",
     "deploy": "npm run build && firebase deploy",
-    "deploy:web:ci": "npm run build && firebase deploy --token \\\"$FIREBASE_TOKEN\\\"",
+    "deploy:web:ci": "npm run build && firebase deploy --token \\\"$FIREBASE_TOKEN\\\" --only --only hosting",
     "deploy:desktop:snap": "npm run build:desktop && bash desktop.sh",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
