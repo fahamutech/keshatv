@@ -18,7 +18,7 @@ function ChannelsPage() {
     }, [sig])
     return (
         <>
-            <ToolBar title={'Home'} backUrl={null} logo={'/logo192.png'}/>
+            <ToolBar title={'Home'} backUrl={null} logo={'./logo192.png'}/>
             <Loading loading={loading}/>
             <NoContents loading={loading} contents={channels} reload={() => setSig(Math.random)}/>
             <ChannelList channels={channels}/>

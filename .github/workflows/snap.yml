@@ -1,0 +1,36 @@
+name: Deploy Desktop
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: get-npm-version
+      id: pv
+      uses: martinbeentjes/npm-get-version-action@master
+    - name: Install Snapcraft
+      uses: samuelmeuli/action-snapcraft@v1
+      with:
+        snapcraft_token: ${{ secrets.STORE_LOGIN }}
+        skip_install: false
+    - run: echo ${{ steps.pv.outputs.current-version }}
+    - run: echo ${{ secrets.GITHUB_TOKEN }}
+    - run: export GT=${{ secrets.GT }} && npm install -g npm
+    - run: export GT=${{ secrets.GT }} && npm install -f
+    - run: export PACKAGE_VERSION=${{ steps.pv.outputs.current-version }} && npm run deploy:desktop:snap
+      env:
+#         PACKAGE_VERSION: ${{ steps.pv.outputs.current-version }}
+#         GT: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}

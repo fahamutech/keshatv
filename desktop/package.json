@@ -1,0 +1,50 @@
+{
+  "name": "keshatv",
+  "description": "on demand television",
+  "author": "SmartStock Company",
+  "version": "0.1.0-alpha.9",
+  "main": "./index.js",
+  "build": {
+    "appId": "com.fahamutech.keshatv",
+    "mac": {
+      "category": "public.app-category.Office"
+    },
+    "linux": {
+      "category": "Entertainment"
+    },
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
+  "extraFiles": [
+    "printer"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "test": "ng test",
+    "lint": "ng lint",
+    "build:snap": "electron-builder --linux snap",
+    "build:mac": "electron-builder --mac",
+    "build:win": "electron-builder --win"
+  },
+  "dependencies": {
+    "ipfs-core": "^0.13.0",
+    "ipfs-http-gateway": "^0.8.0"
+  },
+  "devDependencies": {
+    "electron": "~16.0.4",
+    "electron-builder": "~22.14.5",
+    "electron-is-dev": "~2.0.0",
+    "bfast": "~6.0.0-alpha.19"
+  },
+  "private": true
+}
