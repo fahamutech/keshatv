@@ -23,7 +23,7 @@ jobs:
     - name: Install Snapcraft
       uses: samuelmeuli/action-snapcraft@v1
       with:
-        snapcraft_token: ${{ secrets.STORE_LOGIN }}
+        snapcraft_token: ${{ secrets.SNAP_TOKEN }}
         skip_install: false
     - run: echo ${{ steps.pv.outputs.current-version }}
     - run: echo ${{ secrets.GITHUB_TOKEN }}

@@ -37,8 +37,6 @@
     "build:win": "electron-builder --win"
   },
   "dependencies": {
-    "ipfs-core": "^0.13.0",
-    "ipfs-http-gateway": "^0.8.0"
   },
   "devDependencies": {
     "electron": "~16.0.4",
