@@ -1,0 +1,31 @@
+name: Deploy Win
+
+on:
+  release:
+    types:
+      - published
+
+env:
+  GRT: ${{ secrets.GITHUB_TOKEN }}
+  GT: ${{ secrets.GT }}
+defaults:
+  run:
+    shell: powershell
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+      - name: Install and build window package
+        run: |
+          npm install -g npm
+          npm install -f
+          npm run build:desktop
+          cd desktop
+          npm install -f
+          npm run build:win
+          node upload.win.js

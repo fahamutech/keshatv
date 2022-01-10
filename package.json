@@ -7,7 +7,10 @@
   "scripts": {
     "clean": "rimraf ./build",
     "build": "npm run clean && react-scripts build",
-    "deploy": "npm run clean && react-scripts build && firebase deploy",
+    "build:desktop": "PUBLIC_URL='.' npm run build && mkdir desktop/keshatv || echo '...' && cp -r build/* desktop/keshatv",
+    "deploy": "npm run build && firebase deploy",
+    "deploy:web:ci": "npm run build && firebase deploy --token \\\"$FIREBASE_TOKEN\\\"",
+    "deploy:desktop:snap": "npm run build:desktop && bash desktop.sh",
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "test:react": "react-scripts test",
