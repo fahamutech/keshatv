@@ -113,17 +113,17 @@ function VideoPlayerOverlay(
         }
     }, [videoTag, isPlaying]);
 
-    function togglePlaying() {
-        if (isPlaying) {
-            videoTag.pause()
-            setIsPlaying(false)
-            setDisplay(1)
-        }
-        if (!isPlaying) {
-            videoTag.play()
-            setIsPlaying(true)
-        }
-    }
+    // function togglePlaying() {
+    //     if (isPlaying) {
+    //         videoTag.pause()
+    //         setIsPlaying(false)
+    //         setDisplay(1)
+    //     }
+    //     if (!isPlaying) {
+    //         videoTag.play()
+    //         setIsPlaying(true)
+    //     }
+    // }
 
     return (
         <div style={{opacity: display}}

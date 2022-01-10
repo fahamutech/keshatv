@@ -1,5 +1,6 @@
 import {cache, database, functions} from "bfast";
 import {channelsCache} from "./channel";
+import {IPFS_BASE_URL} from "../utils/url";
 
 const moviesCache = {database: 'keshatv', collection: 'movies'}
 
@@ -14,10 +15,10 @@ async function moviesContents(movies) {
     const ap = movies.reverse().map(async x => {
         const dc = await mCache.get(x)
         if (dc) return dc
-        const d = await functions().request(`https://${x}.ipfs.infura-ipfs.io`).get()
+        const d = await functions().request(`https://${x}.ipfs.${IPFS_BASE_URL}`).get()
         mCache.set(x, d).catch(console.log)
         return d
-    })
+    });
     return await Promise.all(ap);
 }
 

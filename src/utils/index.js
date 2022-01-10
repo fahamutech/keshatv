@@ -1,21 +1,23 @@
+import {IPFS_BASE_URL} from "./url";
+
 function getPreCover(video) {
     if (video.cid === 'bafybeif6m35onngpwav7twapmrd5pce2mxxqcc625qojy7ox2hsyp6ngde') {
-        return 'https://infura-ipfs.io/ipfs/' + video.cid + '/cover.jpg'
+        return `https://${IPFS_BASE_URL}/ipfs/` + video.cid + '/cover.jpg'
     }
     if (video.cid === 'bafybeie2j5awwtxyf2wm2uj3h6unryllpw3apybm46c7vqayfv4szd27cy') {
-        return 'https://infura-ipfs.io/ipfs/' + video.cid + '/cover.png'
+        return `https://${IPFS_BASE_URL}/ipfs/` + video.cid + '/cover.png'
     }
     if (video.cid === 'bafybeig6dfzp5wgipwdj7ypxm3bnjdnkqgcrhajq5yyk2ut46aw4mwgi74') {
-        return 'https://infura-ipfs.io/ipfs/' + video.cid + '/cover.jpg'
+        return `https://${IPFS_BASE_URL}/ipfs/` + video.cid + '/cover.jpg'
     }
     if (video.cid === 'bafybeihxnmxpahmgiesnkqkq3fl4y7atboqsxcj3555c64ceyq5v3esasq') {
-        return 'https://bafybeih7vp6hslgr25xdma44kvyc4mr4736nx4igqxexicsuy3xccq22ym.ipfs.infura-ipfs.io/ni-noma-cut.jpeg'
+        return `https://bafybeih7vp6hslgr25xdma44kvyc4mr4736nx4igqxexicsuy3xccq22ym.ipfs.${IPFS_BASE_URL}/ni-noma-cut.jpeg`
     }
     if (video.cid === 'bafybeibtjycpgsvp4gm3uzt53rhoxm7w67orv6hgjyp2yzxqzci4qnly2u') {
-        return 'https://bafybeibtjycpgsvp4gm3uzt53rhoxm7w67orv6hgjyp2yzxqzci4qnly2u.ipfs.infura-ipfs.io/cover.jpeg'
+        return `https://bafybeibtjycpgsvp4gm3uzt53rhoxm7w67orv6hgjyp2yzxqzci4qnly2u.ipfs.${IPFS_BASE_URL}/cover.jpeg`
     }
     if (video.cid === 'bafybeihza4u4mibw727nwbj47agzp5wvbmzpyqxfxwedwuuagkte3xz4ta') {
-        return 'https://bafybeih7vp6hslgr25xdma44kvyc4mr4736nx4igqxexicsuy3xccq22ym.ipfs.infura-ipfs.io/cops_shop.jpg'
+        return `https://bafybeih7vp6hslgr25xdma44kvyc4mr4736nx4igqxexicsuy3xccq22ym.ipfs.${IPFS_BASE_URL}/cops_shop.jpg`
     }
 }
 
@@ -29,12 +31,12 @@ export function getVideoCover(video) {
     if (cover) return cover;
     if (video.cover) {
         if (video.cover.toString().includes('/')) {
-            cover = 'https://infura-ipfs.io/ipfs/' + video.cover
+            cover = `https://${IPFS_BASE_URL}/ipfs/` + video.cover
         } else {
-            cover = 'https://infura-ipfs.io/ipfs/' + video.cid + '/' + video.cover
+            cover = `https://${IPFS_BASE_URL}/ipfs/` + video.cid + '/' + video.cover
         }
     } else {
-        cover = 'https://infura-ipfs.io/ipfs/' + video.cid + '/cover.jpeg'
+        cover = `https://${IPFS_BASE_URL}/ipfs/` + video.cid + '/cover.jpeg'
     }
     return cover;
 }

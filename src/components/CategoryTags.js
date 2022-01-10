@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import {functions} from "bfast";
 import {channelCategories} from "../services/categories";
 
 const activeLink = 'link br-pill pv2 ph4 white ma1 bw1 pointer';

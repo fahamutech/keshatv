@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import ReactHlsPlayer from "react-hls-player";
 import VideoPlayerOverlay from "./VideoPlayerOverlay";
+import {IPFS_BASE_URL} from "../utils/url";
 
 // infura-ipfs.io
 // astyanax.io
@@ -48,9 +49,9 @@ function VideoPlayer({v, s, title, type, episodes, channel}) {
 
     useEffect(() => {
         if (type === 'series') {
-            setHlsUrl('https://infura-ipfs.io/ipfs/' + v + '/' + episode + '/master.m3u8');
+            setHlsUrl(`https://${v}.ipfs.${IPFS_BASE_URL}/${episode}/master.m3u8`);
         } else {
-            setHlsUrl('https://infura-ipfs.io/ipfs/' + v + '/master.m3u8')
+            setHlsUrl(`https://${v}.ipfs.${IPFS_BASE_URL}/master.m3u8`);
         }
         setPlayerTag(playerRef.current);
         document.title = "KeshaTv - Watch " + title;

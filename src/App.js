@@ -4,8 +4,8 @@ import {Route, Routes, HashRouter} from "react-router-dom";
 import HomePage from "./pages/Channel";
 import {init} from "bfast";
 import ChannelsPage from "./pages/Channels";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import {initializeApp} from "firebase/app";
+import {getAnalytics} from "firebase/analytics";
 // const host = window.location.protocol + "//" + window.location.host;
 init({
     applicationId: 'keshatv',
@@ -25,7 +25,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics =
+getAnalytics(app);
 
 function App() {
     return (
