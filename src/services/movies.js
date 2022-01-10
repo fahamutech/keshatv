@@ -14,7 +14,7 @@ async function moviesContents(movies) {
     const ap = movies.reverse().map(async x => {
         const dc = await mCache.get(x)
         if (dc) return dc
-        const d = await functions().request(`https://${x}.ipfs.astyanax.io`).get()
+        const d = await functions().request(`https://${x}.ipfs.infura-ipfs.io`).get()
         mCache.set(x, d).catch(console.log)
         return d
     })
